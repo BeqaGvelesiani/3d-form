@@ -1,0 +1,113 @@
+.bordered {
+  border: red 1px dashed;
+}
+
+.bordered1 {
+  border: green 1px dashed;
+  margin: 0;
+}
+
+:root {
+  --mainColor: #242424;
+  --creamColor: rgb(255 234 169);
+}
+
+body {
+  background-color: var(--mainColor);
+  font-family: sans-serif;
+}
+
+.section {
+  height: 100dvh;
+  display: grid;
+  place-items: center;
+  color: var(--creamColor);
+}
+
+.outsideText {
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr 1fr;
+  margin: auto;
+  width: 50%;
+  font-size: 1rem;
+  font-family: sans-serif;
+  text-transform: capitalize;
+}
+
+.form {
+  width: clamp(300px, 90vw, 600px);
+  height: clamp(300px, 95dvh, 600px);
+  display: flex;
+  flex-direction: column;
+}
+
+.theForm {
+  height: 70%;
+  background-color: aqua;
+  /* ----------------- */
+  --s: 37px; /* control the size */
+
+  --c: #0000, #282828 0.5deg 119.5deg, #0000 120deg;
+  --g1: conic-gradient(from 60deg at 56.25% calc(425% / 6), var(--c));
+  --g2: conic-gradient(from 180deg at 43.75% calc(425% / 6), var(--c));
+  --g3: conic-gradient(from -60deg at 50% calc(175% / 12), var(--c));
+  background: var(--g1), var(--g1) var(--s) calc(1.73 * var(--s)), var(--g2),
+    var(--g2) var(--s) calc(1.73 * var(--s)), var(--g3) var(--s) 0,
+    var(--g3) 0 calc(1.73 * var(--s)) #1e1e1e;
+  background-size: calc(2 * var(--s)) calc(3.46 * var(--s));
+  /* ------------------------------ */
+  padding: 2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+}
+
+.inputName {
+  height: 2rem;
+}
+
+.inputs {
+  width: 95%;
+  display: grid;
+  gap: 1rem;
+  margin: auto;
+}
+
+button {
+  background-color: var(--creamColor);
+  text-transform: uppercase;
+  width: 7rem;
+  border: none;
+  border-radius: 4px;
+  height: 2rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin: auto;
+}
+
+.inputDiv {
+  background-color: var(--mainColor);
+  height: 2rem;
+  padding: 1rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
+input {
+  background-color: transparent;
+  padding: 0.5rem;
+  border: none;
+  font-size: 1rem;
+  color: var(--creamColor);
+  width: 90%;
+}
+
+input:focus {
+  outline: 1px rgba(151, 8, 8, 0) solid;
+}
+
+.passwordRecover {
+  cursor: pointer;
+}
