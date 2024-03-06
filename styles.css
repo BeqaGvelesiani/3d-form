@@ -3,22 +3,32 @@
   margin: 0;
 } */
 
+/* .red {
+  border: rgba(255, 0, 34, 0.932) 2px dashed;
+  margin: 0;
+} */
+
 :root {
-  --mainColor: #313131;
+  --mainColor: 31, 31, 31;
   --creamColor: rgb(255 234 169);
   --tougleHeight: 1rem;
+  --positionX: calc(var(--tougleHeight) * -0.75);
+  --rotate: rotate(-130deg);
 }
 
 body {
   font-family: sans-serif;
 
-    width: 100%;
+  width: 100%;
   height: 100%;
   /* Add your background pattern here */
   background-color: #313131;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.171) 2px, transparent 0);
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.171) 2px,
+    transparent 0
+  );
   background-size: 30px 30px;
-  background-position: -5px -5px
+  background-position: -5px -5px;
 }
 
 .section {
@@ -59,12 +69,6 @@ body {
   text-align: center;
   display: grid;
   place-items: center;
-  transform: translateX(calc(var(--tougleHeight) * -0.75))  translateY(calc(var(--tougleHeight) * -0.75)) rotate(-130deg);
-  transition: transform 400ms linear;
-}
-
-.tougle:hover::before {
-  transform: translateX(calc(var(--tougleHeight) * 2))  translateY(calc(var(--tougleHeight) * -0.75)) rotate(-410deg);
 }
 
 .form {
@@ -72,6 +76,7 @@ body {
   height: clamp(300px, 95dvh, 600px);
   display: flex;
   flex-direction: column;
+  perspective: 1500px;
 }
 
 .theForm {
@@ -89,32 +94,27 @@ body {
     var(--g3) 0 calc(1.73 * var(--s)) #1e1e1e;
   background-size: calc(2 * var(--s)) calc(3.46 * var(--s));
   /* ------------------------------ */
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   display: grid;
+  grid-template-rows: 1fr 6fr;
   place-items: center;
   border-radius: 8px;
-  animation: rot 800ms linear;
-  perspective: 500px;
 }
 
-.hide {
+#signUpForm {
   display: none;
-}
-
-@keyframes rot {
-    from {transform: rotateY(0deg);}
-    to{transform: rotateY(180deg);}
 }
 
 .inputName {
   height: 2rem;
   margin-top: 0;
-  transform: translateZ(-100px);
 }
 
 .inputs {
   width: 95%;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   gap: 1rem;
   margin: auto;
 }
@@ -132,9 +132,9 @@ button {
 }
 
 .inputDiv {
-  background-color: var(--mainColor);
+  background-color: rgba(var(--mainColor), 0.8);
   height: 2rem;
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -155,4 +155,21 @@ input:focus {
 
 .passwordRecover {
   cursor: pointer;
+  margin: 1rem auto;
+}
+
+/* ------animated objects ------- */
+.tougle::before {
+  transform: translateX(var(--positionX))
+    translateY(calc(var(--tougleHeight) * -0.9)) var(--rotate);
+  transition: transform 400ms linear;
+}
+
+
+#signInForm {
+  transition: transform 10s linear;
+}
+
+#signUpForm {
+  transition: transform 10s linear;
 }
