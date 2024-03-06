@@ -5,7 +5,7 @@ const prop = document.documentElement.style;
 let tougleIndicator = true;
 
 let rotation1 = 0;
-let rotation2 = 90;
+let rotation2 = 180;
 
 tougle.addEventListener("click", () => {
   if (tougleIndicator) {
@@ -46,7 +46,7 @@ function hideSignInForm() {
 function ShowSignUpForm() {
   signUpForm.style.display = "grid";
   console.log("now!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-  signInForm.style.transform = `rotateY(${(rotation2 += 180)}deg)`;
+  signUpForm.style.transform = `rotateY(${(rotation2 += 180)}deg)`;
   console.log(`rotation2 =  ${rotation2}`);
 }
 
