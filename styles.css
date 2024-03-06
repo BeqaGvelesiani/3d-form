@@ -1,4 +1,4 @@
-* {
+/* * {
   border: rgba(0, 0, 0, 0.932) 1px dashed;
   margin: 0;
 }
@@ -8,10 +8,11 @@
   margin: 0;
 }
 
-.blue {
-  border: rgba(52, 113, 45, 0.932) 2px dashed;
+.green {
+  border: rgba(34, 231, 12, 0.932) 2px dashed;
   margin: 0;
-}
+  background-color: rgba(0, 128, 0, 0.285);
+} */
 
 :root {
   --mainColor: 31, 31, 31;
@@ -19,12 +20,12 @@
   --tougleHeight: 1rem;
   --positionX: calc(var(--tougleHeight) * -0.75);
   --rotate: rotate(-130deg);
+  --rotationTime: 0ms;
 }
 
 body {
+  height: 100dvh;
   font-family: sans-serif;
-  width: 100%;
-  height: 100%;
   /* Add your background pattern here */
   background-color: #313131;
   background-image: radial-gradient(
@@ -37,6 +38,7 @@ body {
 
 .section {
   height: 100%;
+  margin: 0;
   display: grid;
   place-items: center;
   color: var(--creamColor);
@@ -60,7 +62,6 @@ body {
   margin: auto;
   border-radius: 18px;
   cursor: pointer;
-  margin-bottom: 3rem;
 }
 
 .tougle::before {
@@ -77,43 +78,43 @@ body {
 
 .form {
   width: clamp(300px, 90vw, 600px);
-  height: clamp(300px, 95dvh, 600px);
+  height: clamp(400px, 90dvh, 600px);
+
   display: flex;
   flex-direction: column;
-  perspective: 1500px;
+  justify-content: space-between;
 }
 
 .theForm {
   height: 100%;
   width: 100%;
-  background-color: aqua;
   /* ----------------- */
-  --s: 37px; /* control the size */
-
-  --c: #0000, #282828 0.5deg 119.5deg, #0000 120deg;
-  --g1: conic-gradient(from 60deg at 56.25% calc(425% / 6), var(--c));
-  --g2: conic-gradient(from 180deg at 43.75% calc(425% / 6), var(--c));
-  --g3: conic-gradient(from -60deg at 50% calc(175% / 12), var(--c));
-  background: var(--g1), var(--g1) var(--s) calc(1.73 * var(--s)), var(--g2),
-    var(--g2) var(--s) calc(1.73 * var(--s)), var(--g3) var(--s) 0,
-    var(--g3) 0 calc(1.73 * var(--s)) #1e1e1e;
-  background-size: calc(2 * var(--s)) calc(3.46 * var(--s));
+background-color: #f90b0b95;
   /* ------------------------------ */
-
   display: grid;
   grid-template-rows: 1fr 6fr;
   place-items: center;
-  border-radius: 8px;
+  border-radius: 16px;
   margin: auto;
+  /*  */
+  transition: transform var(--rotationTime) linear;
+  position: absolute;
+  transform-style: preserve-3d;
 }
 
-#signUpForm {
-  display: none;
-}
+
 
 .inputName {
   height: 2rem;
   margin-top: 0;
+}
+
+.up {
+  transform: translateZ(50px);
+}
+
+.down {
+  transform: translateZ(50px);
 }
 
 .inputs {
@@ -168,13 +169,14 @@ input:focus {
 .tougle::before {
   transform: translateX(var(--positionX))
     translateY(calc(var(--tougleHeight) * -0.9)) var(--rotate);
-  transition: transform 400ms linear;
+  transition: transform var(--rotationTime) linear;
 }
 
-#signInForm {
-  transition: transform 10s linear;
+.formContainer {
+  height: 80%;
+  perspective: 1500px;
 }
 
 #signUpForm {
-  display: none;
+  z-index: -1;
 }
