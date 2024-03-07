@@ -34,14 +34,16 @@ body {
   );
   background-size: 30px 30px;
   background-position: -5px -5px;
-}
-
-.section {
-  height: 100%;
-  margin: 0;
   display: grid;
   place-items: center;
   color: var(--creamColor);
+}
+
+section {
+  display: grid;
+  background-color: rgba(0, 255, 255, 0.297);
+  width: clamp(300px, 90vw, 600px);
+  height: clamp(400px, 90dvh, 600px);
 }
 
 .outsideText {
@@ -77,12 +79,17 @@ body {
 }
 
 .form {
-  width: clamp(300px, 90vw, 600px);
-  height: clamp(400px, 90dvh, 600px);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  margin: auto;
+  display: grid;
+  place-items: center;
+  grid-template-rows: 1fr 1fr 10fr;
+  perspective: 500px;
+  height: 500px;
+  width: 100%;
+  box-sizing: border-box;
+  perspective: 1200px;
+  margin-top: 1rem;
+  margin-bottom: 0;
 }
 
 .LogIn,
@@ -145,15 +152,17 @@ body {
   margin: auto;
   /*  */
   transition: transform var(--rotationTime) linear;
+  
   position: absolute;
-  transform-style: preserve-3d;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 .inputName {
   height: 2rem;
   margin-top: 0;
+  transform: translateZ(50px);
 }
-
 
 .inputs {
   width: 95%;
@@ -162,6 +171,7 @@ body {
   justify-content: space-between;
   gap: 1rem;
   margin: auto;
+  transform: translateZ(50px);
 }
 
 button {
@@ -210,20 +220,13 @@ input:focus {
   transition: transform var(--rotationTime) linear;
 }
 
-.formContainer {
-  height: 80%;
-  perspective: 1500px;
-}
-
 .SignUp {
   transform: rotateY(0turn);
   backface-visibility: hidden;
-  transform: translateZ(50px);
+  transform-style: preserve-3d;
 }
 
 .LogIn {
-  transform: rotateY(0turn);
-  backface-visibility: hidden;
   transform: translateZ(50px);
+  transform-style: preserve-3d;
 }
-

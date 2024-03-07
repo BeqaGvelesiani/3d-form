@@ -3,7 +3,7 @@ const signInForm = document.getElementById("signInForm");
 const signUpForm = document.getElementById("signUpForm");
 const prop = document.documentElement.style;
 let tougleIndicator = true;
-let rotationTime = 2000;
+let rotationTime = 1000;
 
 let rotation1 = 0;
 let rotation2 = 0.5;
