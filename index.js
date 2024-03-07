@@ -3,17 +3,15 @@ const signInForm = document.getElementById("signInForm");
 const signUpForm = document.getElementById("signUpForm");
 const prop = document.documentElement.style;
 let tougleIndicator = true;
-let rotationTime = 1000;
-
-
-prop.setProperty("--rotationTime", `${rotationTime}ms`);
+let rotationTime = 2000;
 
 let rotation1 = 0;
-let rotation2 = 0;
+let rotation2 = 0.5;
 
 signUpForm.style.transform = `rotateY(${rotation2}turn)`;
 
 tougle.addEventListener("click", () => {
+  prop.setProperty("--rotationTime", `${rotationTime}ms`);
   if (tougleIndicator) {
     toSignUp();
   } else {

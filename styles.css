@@ -85,7 +85,8 @@ body {
   justify-content: space-between;
 }
 
-.theForm {
+.LogIn,
+.SignUp {
   height: 100%;
   width: 100%;
   /* ----------------- */
@@ -145,7 +146,7 @@ body {
   /*  */
   transition: transform var(--rotationTime) linear;
   position: absolute;
-  
+  transform-style: preserve-3d;
 }
 
 .inputName {
@@ -153,13 +154,6 @@ body {
   margin-top: 0;
 }
 
-.up {
-  transform: translateZ(50px);
-}
-
-.down {
-  transform: translateZ(50px);
-}
 
 .inputs {
   width: 95%;
@@ -221,11 +215,15 @@ input:focus {
   perspective: 1500px;
 }
 
-#signInForm {
-  transform-style: preserve-3d;
+.SignUp {
+  transform: rotateY(0turn);
+  backface-visibility: hidden;
+  transform: translateZ(50px);
 }
 
-#signUpForm {
-  transform-style: preserve-3d;
+.LogIn {
   transform: rotateY(0turn);
+  backface-visibility: hidden;
+  transform: translateZ(50px);
 }
+
