@@ -53,6 +53,6 @@ function random(a, b) {
 }
 
 setInterval(function () {
-  divadd(XY.left, XY.right, XY.bottom-300, XY.bottom);
-},50);
+  divadd(XY.left, XY.right, XY.bottom+20, XY.bottom);
+}, 15);
 
