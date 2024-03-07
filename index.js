@@ -2,6 +2,7 @@ const tougle = document.getElementById("tougle");
 const form = document.getElementById("form");
 const prop = document.documentElement.style;
 const body = document.getElementById("body");
+const XY = body.getBoundingClientRect();
 let tougleIndicator = true;
 
 let rotation = 0;
@@ -36,10 +37,14 @@ function divadd(a, b, c, d) {
   div.style.left = `${random(a, b)}px`;
   div.style.top = `${random(c, d)}px`;
   body.appendChild(div);
-  setInterval(function () {
+  setTimeout(function () {
     div.style.transform = "translateY(-107vh)";
-    div.style.transition = "transform 10s";
+    div.style.transition = "transform 5s cubic-bezier(0.41, 0.77, 1, 0.03)";
   });
+
+  setTimeout(function () {
+    div.remove()
+  }, 5000);
 }
 
 function random(a, b) {
@@ -47,14 +52,7 @@ function random(a, b) {
   return Math.floor(Math.random() * i) + a;
 }
 
-divadd(1, 300, 1, 700);
-divadd(1, 300, 1, 700);
-divadd(1, 300, 1, 700);
-divadd(1, 300, 1, 700);
-divadd(1, 300, 1, 700);
-divadd(1, 300, 1, 700);
-divadd(1, 300, 1, 700);
-divadd(1, 300, 1, 700);
-divadd(1, 300, 1, 700);
-divadd(1, 300, 1, 700);
-divadd(1, 300, 1, 700);
+setInterval(function () {
+  divadd(XY.left, XY.right, XY.bottom-300, XY.bottom);
+},50);
+
