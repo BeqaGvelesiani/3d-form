@@ -9,7 +9,7 @@ let rotationTime = 1000;
 prop.setProperty("--rotationTime", `${rotationTime}ms`);
 
 let rotation1 = 0;
-let rotation2 = 0.5;
+let rotation2 = 0;
 
 signUpForm.style.transform = `rotateY(${rotation2}turn)`;
 
