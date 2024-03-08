@@ -2,7 +2,7 @@ const tougle = document.getElementById("tougle");
 const form = document.getElementById("form");
 const prop = document.documentElement.style;
 const body = document.getElementById("body");
-const XY = body.getBoundingClientRect();
+
 let tougleIndicator = true;
 
 let rotation = 0;
@@ -53,6 +53,7 @@ function random(a, b) {
 }
 
 setInterval(function () {
-  divadd(XY.left, XY.right, XY.bottom+20, XY.bottom);
+  const XY = body.getBoundingClientRect();
+  divadd(XY.left, XY.right, XY.bottom-25, XY.bottom-20);
 }, 15);
 
